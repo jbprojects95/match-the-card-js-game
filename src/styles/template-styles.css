@@ -40,16 +40,19 @@ footer {
 }
 
 header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  grid-row: 1;
+  display: grid;
+  grid-template-columns: auto 1fr;
   border-bottom: 2px solid var(--line-clr);
 }
 
-header .logo-container {
+header .logo-container,
+.navbar ul {
   display: flex;
   flex-direction: row;
   align-items: center;
+
+  gap: 2rem;
 }
 
 .navbar {
@@ -59,13 +62,6 @@ header .logo-container {
   /* transition: 300ms ease-in-out;
   box-shadow: 1px 0 0 color-mix(in oklch, var(--line-clr) 90%, transparent),
     4px 0 10px oklch(0 0 0 / 0.18), inset -1px 0 0 oklch(1 0 0 / 0.04); */
-}
-
-.navbar ul {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 2rem;
 }
 
 .navbar li {
@@ -79,7 +75,7 @@ label[for="base-colour-input"] {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  /* cursor: pointer; */
+
   border: 1px solid var(--line-clr);
   box-shadow: 0 0 0 1px color-mix(in oklch, var(--line-clr) 90%, transparent),
     inset 0 0 2px 1px color-mix(in oklch, var(--base-clr) 25%, transparent);
@@ -95,6 +91,7 @@ label[for="base-colour-input"] {
 }
 
 main {
+  grid-row: 2;
   padding-inline: min(30px, 3%);
   padding-block: 0.2rem;
 
@@ -104,12 +101,10 @@ main {
   border: 1px solid green;
 }
 
-.container {
+/* .container {
   box-shadow: 0 0 0 1px color-mix(in oklch, var(--line-clr) 90%, transparent),
     0 0 10px oklch(0 0 0 / 0.18),
     inset 0 0 2px 1px color-mix(in oklch, var(--base-clr) 25%, transparent);
-  /* box-shadow: 0 0 0 1px var(--line-clr), 0 1px 2px oklch(0 0 0 / 0.15),
-    inset 0 0 0 1px oklch(1 0 0 / 0.04); */
   border: 1px solid var(--line-clr);
   border-radius: 1rem;
   margin-bottom: 1.6rem;
@@ -122,9 +117,10 @@ main {
   p {
     margin-top: 1rem;
   }
-}
+} */
 
 footer {
+  grid-row: 3;
   border-top: 2px solid var(--line-clr);
 }
 
