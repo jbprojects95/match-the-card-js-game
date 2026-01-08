@@ -1,7 +1,8 @@
 import { loadHome } from "./pages/home";
-import { loadCalendar } from "./pages/calendar";
+
 import { loadDashboard } from "./pages/dashboard";
 import { loadProfile } from "./pages/profile";
+import { loadScore } from "./pages/score";
 
 const routes = {
   home: {
@@ -12,19 +13,20 @@ const routes = {
     title: "Dashboard",
     render: loadDashboard,
   },
-  calendar: {
-    title: "Calendar",
-    render: loadCalendar,
-  },
   profile: {
     title: "Profile",
     render: loadProfile,
+  },
+
+  score: {
+    title: "Score",
+    render: loadScore,
   },
 };
 
 export function navigate(route) {
   const container = document.getElementById("main-content");
-  const pageTitle = document.getElementById("page-title");
+  // const pageTitle = document.getElementById("page-title");
   const page = routes[route];
 
   if (!page) return;
@@ -33,6 +35,6 @@ export function navigate(route) {
     container.classList.add(`page-${route}`);
     container.innerHTML = "";
     page.render(container);
-    pageTitle.textContent = page.title;
+    // pageTitle.textContent = page.title;
   }
 }

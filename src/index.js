@@ -2,6 +2,8 @@ import "./styles/template-styles.css";
 
 import { navigate } from "./router";
 
+import { Deck } from "./game/deck";
+
 /* 
 EXAMPLE IMG IMPORT:
 
@@ -15,43 +17,43 @@ document.body.appendChild(image);
 
 */
 
-const dropDowns = document.querySelectorAll(".dropdown-btn");
-const toggleButton = document.querySelector(".toggle-btn");
-const sidebar = document.querySelector(".sidebar");
+// const dropDowns = document.querySelectorAll(".dropdown-btn");
+// const toggleButton = document.querySelector(".toggle-btn");
+// const sidebar = document.querySelector(".sidebar");
 
-function toggleSidebar() {
-  sidebar.classList.toggle("close");
-  toggleButton.classList.toggle("rotate");
-  closeAllSubMenus();
-}
+// function toggleSidebar() {
+//   sidebar.classList.toggle("close");
+//   toggleButton.classList.toggle("rotate");
+//   closeAllSubMenus();
+// }
 
-toggleButton.addEventListener("click", toggleSidebar);
+// toggleButton.addEventListener("click", toggleSidebar);
 
-dropDowns.forEach((button) => {
-  button.addEventListener("click", function () {
-    if (!button.nextElementSibling.classList.contains("show")) {
-      closeAllSubMenus();
-    }
-    // As subMenu is the next parent of this (button) it adds show to it
-    const subMenu = this.nextElementSibling;
-    subMenu.classList.toggle("show");
-    button.classList.toggle("rotate");
+// dropDowns.forEach((button) => {
+//   button.addEventListener("click", function () {
+//     if (!button.nextElementSibling.classList.contains("show")) {
+//       closeAllSubMenus();
+//     }
+//     // As subMenu is the next parent of this (button) it adds show to it
+//     const subMenu = this.nextElementSibling;
+//     subMenu.classList.toggle("show");
+//     button.classList.toggle("rotate");
 
-    // Toggles the sidebar open if a drop down is clicked when sidebar is closed.
-    if (sidebar.classList.contains("close")) {
-      sidebar.classList.toggle("close");
-      toggleButton.classList.toggle("rotate");
-    }
-  });
-});
+//     // Toggles the sidebar open if a drop down is clicked when sidebar is closed.
+//     if (sidebar.classList.contains("close")) {
+//       sidebar.classList.toggle("close");
+//       toggleButton.classList.toggle("rotate");
+//     }
+//   });
+// });
 
-function closeAllSubMenus() {
-  // Removes relevant classes when sidebar is open (closes drop downs if sidebar is closed)
-  Array.from(sidebar.getElementsByClassName("show")).forEach((ul) => {
-    ul.classList.remove("show");
-    ul.previousElementSibling.classList.remove("rotate");
-  });
-}
+// function closeAllSubMenus() {
+//   // Removes relevant classes when sidebar is open (closes drop downs if sidebar is closed)
+//   Array.from(sidebar.getElementsByClassName("show")).forEach((ul) => {
+//     ul.classList.remove("show");
+//     ul.previousElementSibling.classList.remove("rotate");
+//   });
+// }
 
 function setActive(navbarItem) {
   document
@@ -102,3 +104,7 @@ function getLightnessFromHex(hex) {
 
   return +(brightness * 100).toFixed(2);
 }
+
+const deck1 = new Deck();
+deck1.buildDeck();
+deck1.logDeck();
