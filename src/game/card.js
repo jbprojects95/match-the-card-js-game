@@ -19,7 +19,7 @@ export class Card {
     this.cardMatched = true;
   }
 
-  reset() {
+  resetCard() {
     this.cardFaceUp = false;
     this.cardMatched = false;
   }
