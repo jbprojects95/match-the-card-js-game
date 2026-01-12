@@ -107,4 +107,26 @@ function getLightnessFromHex(hex) {
 
 const deck1 = new Deck();
 deck1.buildDeck();
-deck1.logDeck();
+
+const createCards = () => {
+  const main = document.querySelector("main");
+  const mainContent = document.createElement("div");
+  mainContent.classList.add("grid-container");
+
+  const deck = deck1.deck;
+  for (const card of deck) {
+    const cardDiv = document.createElement("div");
+    cardDiv.classList.add("grid-cell");
+
+    const cardFront = document.createElement("img");
+
+    /* commenting for my own sanity - this sets the img src to card.cardFront, 
+    then appends said front to the cardDiv (grid-cell) then appends that to mainContent, then appends mainContent to main. */
+    cardFront.src = card.cardFront;
+    cardDiv.appendChild(cardFront);
+    mainContent.appendChild(cardDiv);
+    main.appendChild(mainContent);
+  }
+};
+
+createCards();

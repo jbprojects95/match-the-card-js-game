@@ -1,6 +1,4 @@
 import { loadHome } from "./pages/home";
-
-import { loadDashboard } from "./pages/dashboard";
 import { loadProfile } from "./pages/profile";
 import { loadScore } from "./pages/score";
 
@@ -8,10 +6,6 @@ const routes = {
   home: {
     title: "Home",
     render: loadHome,
-  },
-  dashboard: {
-    title: "Dashboard",
-    render: loadDashboard,
   },
   profile: {
     title: "Profile",
