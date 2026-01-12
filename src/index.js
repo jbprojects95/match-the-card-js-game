@@ -109,24 +109,30 @@ const deck1 = new Deck();
 deck1.buildDeck();
 
 const createCards = () => {
-  const main = document.querySelector("main");
-  const mainContent = document.createElement("div");
-  mainContent.classList.add("grid-container");
+  const gameRoot = document.getElementById("game-root");
+  if (!gameRoot) return;
+
+  gameRoot.innerHTML = "";
+  const gameGrid = document.createElement("div");
+  gameGrid.classList.add("grid-container");
 
   const deck = deck1.deck;
   for (const card of deck) {
     const cardDiv = document.createElement("div");
     cardDiv.classList.add("grid-cell");
-
-    const cardFront = document.createElement("img");
+    const cardBack = document.createElement("img");
 
     /* commenting for my own sanity - this sets the img src to card.cardFront, 
     then appends said front to the cardDiv (grid-cell) then appends that to mainContent, then appends mainContent to main. */
-    cardFront.src = card.cardFront;
-    cardDiv.appendChild(cardFront);
-    mainContent.appendChild(cardDiv);
-    main.appendChild(mainContent);
+    cardBack.src = card.cardBack;
+    cardBack.classList.add("card-back");
+    cardDiv.appendChild(cardBack);
+    gameGrid.appendChild(cardDiv);
   }
+
+  gameRoot.appendChild(gameGrid);
 };
 
 createCards();
+
+// TODO: find a way to make the CSS invert on the cardBack change dynamically like text colour does.
