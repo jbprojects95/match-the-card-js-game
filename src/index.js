@@ -55,6 +55,23 @@ document.body.appendChild(image);
 //   });
 // }
 
+const mobileNavBtn = document.querySelector(".hamburger-menu-btn");
+const mobileCloseBtn = document.querySelector(".close-menu-btn");
+const nav = document.querySelector(".navbar-items");
+
+const menuOpen = () => {
+  nav.classList.add("is-open");
+  nav.classList.add("nav-open");
+};
+
+const menuClose = () => {
+  nav.classList.remove("is-open");
+  nav.classList.add("nav-close");
+};
+
+mobileNavBtn.addEventListener("click", menuOpen);
+mobileCloseBtn.addEventListener("click", menuClose);
+
 function setActive(navbarItem) {
   document
     .querySelectorAll("[data-route]")
