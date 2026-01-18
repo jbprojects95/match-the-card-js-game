@@ -57,15 +57,23 @@ document.body.appendChild(image);
 
 const mobileNavBtn = document.querySelector(".hamburger-menu-btn");
 const mobileCloseBtn = document.querySelector(".close-menu-btn");
+const mobileBreakpoint = window.matchMedia("(max-width: 800px)");
 const nav = document.querySelector(".navbar-items");
 
+mobileBreakpoint.addEventListener("change", (e) => {
+  if (!e.matches) {
+    /*this is to stop the mobile menu flickering on open and page resize.*/
+    nav.classList.remove("is-open", "nav-open", "nav-close");
+  }
+});
+
 const menuOpen = () => {
-  nav.classList.add("is-open");
-  nav.classList.add("nav-open");
+  nav.classList.remove("nav-close");
+  nav.classList.add("nav-open", "is-open");
 };
 
 const menuClose = () => {
-  nav.classList.remove("is-open");
+  nav.classList.remove("nav-open", "is-open");
   nav.classList.add("nav-close");
 };
 
@@ -104,7 +112,7 @@ function setColour() {
   document.body.setAttribute(
     "style",
     `--base-clr: ${colourHex.value};
-    --text-clr: ${lightness > 65 ? "black" : "white"}`
+    --text-clr: ${lightness > 65 ? "black" : "white"}`,
   );
 }
 

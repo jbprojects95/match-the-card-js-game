@@ -93,7 +93,8 @@ label[for="base-colour-input"] {
   font-size: clamp(1rem, 1rem + 1vw, 1.5rem);
 
   border: 1px solid var(--line-clr);
-  box-shadow: 0 0 0 1px color-mix(in oklch, var(--line-clr) 90%, transparent),
+  box-shadow:
+    0 0 0 1px color-mix(in oklch, var(--line-clr) 90%, transparent),
     inset 0 0 2px 1px color-mix(in oklch, var(--base-clr) 25%, transparent);
 }
 
@@ -181,11 +182,6 @@ footer {
     width: 300px;
 
     transform: translateX(100%);
-    /* transition: transform 0.3s ease; */
-
-    /* transform: translateX(100%); */
-    /* transition: transform 0.3s ease; */
-
     background-color: var(--base-clr);
     border: 2px solid var(--line-clr);
     z-index: 9999;
@@ -203,7 +199,6 @@ footer {
   }
 
   .navbar .hamburger-menu-btn {
-    /* fill: white; */
     display: flex;
     align-items: center;
 
@@ -223,7 +218,7 @@ footer {
   .menu-header {
     width: 100%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     padding-inline: 1.5rem;
   }
 
@@ -237,7 +232,7 @@ footer {
     cursor: pointer;
 
     position: fixed;
-    top: 0;
+    top: 2px;
     right: 0;
 
     padding: 1rem;
