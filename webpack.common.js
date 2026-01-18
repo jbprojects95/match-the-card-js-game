@@ -26,8 +26,20 @@ module.exports = {
         test: /\.html$/i,
         loader: "html-loader",
       },
+
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        test: /\.svg$/i,
+        resourceQuery: /raw/,
+        type: "asset/source",
+      },
+
+      {
+        test: /\.svg$/i,
+        type: "asset/resource",
+        resourceQuery: { not: [/raw/] },
+      },
+      {
+        test: /\.(png|jpg|jpeg|gif)$/i,
         type: "asset/resource",
       },
     ],

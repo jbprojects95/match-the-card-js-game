@@ -4,6 +4,8 @@ import { navigate } from "./router";
 
 import { Deck } from "./game/deck";
 
+import cardBackSvg from "./assets/cards/cardBack/dish.svg?raw";
+
 /* 
 EXAMPLE IMG IMPORT:
 
@@ -108,17 +110,20 @@ const createCards = () => {
   for (const card of deck) {
     const cardDiv = document.createElement("div");
     cardDiv.classList.add("grid-cell");
-    const cardBack = document.createElement("img");
+    // const cardBack = document.createElement("svg");
 
     /* commenting for my own sanity - this sets the img src to card.cardBack, 
     then appends said front to the cardDiv (grid-cell) then appends that to mainContent, then appends mainContent to main. */
-    cardBack.src = card.cardBack;
-    cardBack.classList.add("card-back");
-    cardDiv.appendChild(cardBack);
+    // cardBack.src = card.cardBack;
+    // cardBack.classList.add("card-back");
+    // cardDiv.appendChild(cardBack);
+    cardDiv.innerHTML = cardBackSvg;
     gameGrid.appendChild(cardDiv);
   }
 
   gameRoot.appendChild(gameGrid);
+
+  console.log(cardBackSvg);
 };
 
 createCards();

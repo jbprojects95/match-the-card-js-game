@@ -153,11 +153,11 @@ main {
   min-width: 50px;
 }
 
-.grid-cell img {
+.grid-cell svg {
   width: 100%;
   padding: 4px;
   object-fit: contain;
-  color: var(--text-clr);
+  fill: var(--text-clr);
 }
 
 .grid-cell:hover {
