@@ -4,16 +4,27 @@ import { Card } from "./card";
 export class Game {
   constructor() {
     this.selectedCardArray = [];
+    this.checkingCards = false;
+    this.win = false;
   }
 
   selectCards(card) {
-    if (this.selectedCardArray.length < 2) {
+    if (this.checkingCards) return;
+    if (
+      this.selectedCardArray.length < 2 &&
+      !card.cardFaceUp &&
+      !card.cardMatched
+    ) {
       card.revealCard();
       this.selectedCardArray.push(card);
     }
     console.log(this.selectedCardArray);
+
     if (this.selectedCardArray.length === 2) {
-      this.compareCards();
+      this.checkingCards = true;
+      setTimeout(() => {
+        this.compareCards();
+      }, 1000);
     }
   }
 
@@ -30,10 +41,8 @@ export class Game {
       console.log("FAIL");
       firstCard.resetCard();
       secondCard.resetCard();
-      firstCard.hideCard();
-      secondCard.hideCard();
     }
-
     this.selectedCardArray = [];
+    this.checkingCards = false;
   }
 }

@@ -160,6 +160,12 @@ main {
   fill: var(--text-clr);
 }
 
+.grid-cell img {
+  width: 100%;
+  padding: 4px;
+  object-fit: contain;
+}
+
 .grid-cell:hover {
   border-color: white;
 }
