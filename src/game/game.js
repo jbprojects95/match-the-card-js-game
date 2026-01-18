@@ -24,7 +24,7 @@ export class Game {
       this.checkingCards = true;
       setTimeout(() => {
         this.compareCards();
-      }, 1000);
+      }, 500);
     }
   }
 

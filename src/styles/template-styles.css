@@ -12,7 +12,8 @@ html {
 }
 
 body {
-  --base-clr: #1d2c3e;
+  /* wine colour: #5e3640 */
+  --base-clr: #5e3640;
   --line-clr: oklch(from var(--hover-clr) clamp(0.4, calc(l * 1.2), 0.7) c h);
   --hover-clr: oklch(from var(--base-clr) clamp(0.5, calc(l * 1.2), 0.79) c h);
   --text-clr: hsl(0, 0%, 98%);
@@ -68,6 +69,7 @@ header {
 .navbar li {
   list-style: none;
   font-size: var(--main-font-size);
+  font-weight: bold;
   cursor: pointer;
   padding: 0.5rem;
 }
@@ -133,7 +135,8 @@ main {
   grid-template-rows: repeat(4, 1fr);
   gap: 0.5rem;
   align-items: center;
-  border: 1px solid var(--accent-clr);
+  border: 3px solid var(--accent-clr);
+  border-radius: 8px;
   width: 100%;
   max-width: 600px;
 
@@ -145,7 +148,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.2rem;
+  padding: 0.19rem;
 
   border: 2px solid var(--line-clr);
   border-radius: 8px;
@@ -162,8 +165,9 @@ main {
 
 .grid-cell img {
   width: 100%;
-  padding: 4px;
   object-fit: contain;
+  background-color: var(--accent-clr);
+  border-radius: 4px;
 }
 
 .grid-cell:hover {
