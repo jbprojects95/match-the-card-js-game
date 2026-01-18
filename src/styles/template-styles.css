@@ -22,6 +22,8 @@ body {
       clamp(0.12, calc(c * 2.5), 0.3) calc(h + 180)
   );
 
+  --main-font-size: clamp(1rem, 0.9rem + 0.6vw, 1.5rem);
+
   background-color: var(--base-clr);
   color: var(--text-clr);
 
@@ -59,19 +61,19 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 2rem;
+
   width: 100%;
-  min-height: 48px;
-  /* transition: 300ms ease-in-out;
-  box-shadow: 1px 0 0 color-mix(in oklch, var(--line-clr) 90%, transparent),
-    4px 0 10px oklch(0 0 0 / 0.18), inset -1px 0 0 oklch(1 0 0 / 0.04); */
 }
 
 .navbar li {
   list-style: none;
-  font-size: clamp(1rem, 1rem + 1vw, 1.5rem);
-
+  font-size: var(--main-font-size);
+  cursor: pointer;
   padding: 0.5rem;
+}
+
+.navbar li:hover {
+  color: var(--accent-clr);
 }
 
 .navbar .hamburger-menu-btn {
@@ -90,7 +92,7 @@ label[for="base-colour-input"] {
   align-items: center;
   gap: 0.5rem;
 
-  font-size: clamp(1rem, 1rem + 1vw, 1.5rem);
+  font-size: var(--main-font-size);
 
   border: 1px solid var(--line-clr);
   box-shadow:
@@ -105,6 +107,8 @@ label[for="base-colour-input"] {
   border: 1px solid var(--line-clr);
   border-radius: 0.2rem;
   cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 
 .colour-picker {
@@ -117,8 +121,8 @@ main {
   padding-inline: min(30px, 4%);
   padding-block: 0.2rem;
 
-  /* margin-inline: min(32px, 3%);
-  margin-block: 1rem; */
+  margin-inline: min(32px, 3%);
+  margin-block: 1rem;
   display: flex;
   justify-content: center;
 }
@@ -129,7 +133,7 @@ main {
   grid-template-rows: repeat(4, 1fr);
   gap: 0.5rem;
   align-items: center;
-  border: 1px solid orange;
+  border: 1px solid var(--accent-clr);
   width: 100%;
   max-width: 600px;
 
@@ -143,7 +147,7 @@ main {
   justify-content: center;
   padding: 0.2rem;
 
-  border: 1px solid red;
+  border: 2px solid var(--line-clr);
   border-radius: 8px;
   width: 100%;
   min-width: 50px;
@@ -153,14 +157,11 @@ main {
   width: 100%;
   padding: 4px;
   object-fit: contain;
+  color: var(--text-clr);
 }
 
 .grid-cell:hover {
   border-color: white;
-}
-
-.card-back {
-  filter: invert(0.9);
 }
 
 footer {
@@ -168,7 +169,7 @@ footer {
   border-top: 2px solid var(--line-clr);
 }
 
-@media (max-width: 800px) {
+@media (max-width: 690px) {
   .navbar {
     display: flex;
     background: var(--surface-clr);
@@ -179,7 +180,7 @@ footer {
     right: 0;
     top: 0;
     height: 100dvh;
-    width: 300px;
+    width: 100%;
 
     transform: translateX(100%);
     background-color: var(--base-clr);
@@ -188,14 +189,14 @@ footer {
 
     flex-direction: column;
     padding-block: 1rem;
-    gap: 2rem;
+    gap: 1.3rem;
   }
 
   .navbar .navbar-items > li:not(.menu-header) {
     border-bottom: 1px solid var(--accent-clr);
-    width: 40%;
+    width: 100px;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 
   .navbar .hamburger-menu-btn {
@@ -254,6 +255,21 @@ footer {
   }
   .nav-close {
     transition: transform 0.3s ease-in-out;
+  }
+
+  .grid-container {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+  }
+
+  .colour-picker {
+    width: 40%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+  }
+  label[for="base-colour-input"] {
+    justify-content: center;
   }
 }
 

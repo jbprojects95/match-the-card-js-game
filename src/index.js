@@ -14,50 +14,11 @@ image.src = odinImage;
    
 document.body.appendChild(image);
 
-
 */
-
-// const dropDowns = document.querySelectorAll(".dropdown-btn");
-// const toggleButton = document.querySelector(".toggle-btn");
-// const sidebar = document.querySelector(".sidebar");
-
-// function toggleSidebar() {
-//   sidebar.classList.toggle("close");
-//   toggleButton.classList.toggle("rotate");
-//   closeAllSubMenus();
-// }
-
-// toggleButton.addEventListener("click", toggleSidebar);
-
-// dropDowns.forEach((button) => {
-//   button.addEventListener("click", function () {
-//     if (!button.nextElementSibling.classList.contains("show")) {
-//       closeAllSubMenus();
-//     }
-//     // As subMenu is the next parent of this (button) it adds show to it
-//     const subMenu = this.nextElementSibling;
-//     subMenu.classList.toggle("show");
-//     button.classList.toggle("rotate");
-
-//     // Toggles the sidebar open if a drop down is clicked when sidebar is closed.
-//     if (sidebar.classList.contains("close")) {
-//       sidebar.classList.toggle("close");
-//       toggleButton.classList.toggle("rotate");
-//     }
-//   });
-// });
-
-// function closeAllSubMenus() {
-//   // Removes relevant classes when sidebar is open (closes drop downs if sidebar is closed)
-//   Array.from(sidebar.getElementsByClassName("show")).forEach((ul) => {
-//     ul.classList.remove("show");
-//     ul.previousElementSibling.classList.remove("rotate");
-//   });
-// }
 
 const mobileNavBtn = document.querySelector(".hamburger-menu-btn");
 const mobileCloseBtn = document.querySelector(".close-menu-btn");
-const mobileBreakpoint = window.matchMedia("(max-width: 800px)");
+const mobileBreakpoint = window.matchMedia("(max-width: 690px)");
 const nav = document.querySelector(".navbar-items");
 
 mobileBreakpoint.addEventListener("change", (e) => {
@@ -130,6 +91,8 @@ function getLightnessFromHex(hex) {
   return +(brightness * 100).toFixed(2);
 }
 
+// ----------[CARD-GENERATOR-CODE]----------
+
 const deck1 = new Deck();
 deck1.buildDeck();
 
@@ -147,7 +110,7 @@ const createCards = () => {
     cardDiv.classList.add("grid-cell");
     const cardBack = document.createElement("img");
 
-    /* commenting for my own sanity - this sets the img src to card.cardFront, 
+    /* commenting for my own sanity - this sets the img src to card.cardBack, 
     then appends said front to the cardDiv (grid-cell) then appends that to mainContent, then appends mainContent to main. */
     cardBack.src = card.cardBack;
     cardBack.classList.add("card-back");
