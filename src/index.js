@@ -4,6 +4,8 @@ import { navigate } from "./router";
 
 import { Deck } from "./game/deck";
 
+import { Game } from "./game/game";
+
 import cardBackSvg from "./assets/cards/cardBack/dish.svg?raw";
 
 /* 
@@ -96,6 +98,7 @@ function getLightnessFromHex(hex) {
 // ----------[CARD-GENERATOR-CODE]----------
 
 const deck1 = new Deck();
+const game = new Game();
 deck1.buildDeck();
 
 const createCards = () => {
@@ -117,13 +120,17 @@ const createCards = () => {
     // cardBack.src = card.cardBack;
     // cardBack.classList.add("card-back");
     // cardDiv.appendChild(cardBack);
+
     cardDiv.innerHTML = cardBackSvg;
     gameGrid.appendChild(cardDiv);
+
+    cardDiv.addEventListener("click", () => {
+      cardDiv.innerHTML = card.id;
+      game.selectCards(card);
+    });
   }
 
   gameRoot.appendChild(gameGrid);
-
-  console.log(cardBackSvg);
 };
 
 createCards();
